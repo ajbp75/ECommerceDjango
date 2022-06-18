@@ -1,0 +1,70 @@
+#Criar área virtual
+pyenv virtualenv 3.10.5 crud
+
+#Acionar a area virtual
+pyenv activate crud
+
+#Create structure project django
+django-admin startproject mysite
+#configurar este endereçamento no settings.py (Installed_Apps) 
+#Exemplo: users.apps.UsersConfig
+
+#run app
+python manage.py runserver
+
+#Views implamentations (urls.py)
+# Quando quero criar uma parte do sistema 
+python3 manage.py startapp food
+#depois fazer a view tem que configurar o urls.py (e configurar urlpatterns)
+#Observação "cuidado com as barras", sempre fechar no final exemplo: http://localhost:8000/food/
+
+# Como é a ordem de funcionamento
+# ordem urls.py ==> setting.py ==> view.py <== food.urls <== mysite.urls
+
+#settings.py 
+# INSTALLED_APPS == É onde estão instalados os app que subirão nesta instancia django
+
+#models (models.py)
+#A partir dos models eu crio os bancos de dados
+#Colocar o foods.config no Settings (INSTALLED_APPS)
+
+#criar banco de dados
+python3 manage.py migrate
+
+#atualizar banco de dados
+ python3 manage.py makemigrations food
+
+#Criar Tabela
+python3  manage.py sqlmigrate food 0001
+python3 manage.py migrate
+
+#Manutenção da Base de dados
+python3 manage.py shell # Abre um console
+from food.models import Item # Class da models.py
+Item.objects.all() # lista todos os objetos
+a = Item(item_name="Pizza", item_desc="Queijo", item_price=20) #inclui registro
+a.save()
+a.id
+a.pk # Primary key
+
+#Criar Super usuario
+python manage.py createsuperuser
+
+#Criar modelo do admin (food.admin.py)
+#Só registrar
+
+#Fazer os templates
+#Fazer as pastas templates
+
+#Configurar a rota na urls.py do projeto principal (urlpatterns)
+
+#Fazer as páginas staticas
+
+#Fazer front html/bootstrap
+
+#Construir as bases do templates
+
+#Construir os Forms (Crud)
+#criar forms.py (food - lembrar de coloca-lo no url)
+
+#Fazer a configuração do Login no setting.py (users)
