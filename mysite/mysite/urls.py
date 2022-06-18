@@ -31,7 +31,7 @@ urlpatterns = [
     path('profile/',user_views.profilepage,name='profile'),
 ]
 
-#Para incluir as imagens, quando chamar
+#Para incluir as imagens, quando chamar 
 urlpatterns += [
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
